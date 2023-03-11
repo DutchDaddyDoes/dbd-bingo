@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dead by Daylight Killer Bingo</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="bingo-card">
+      <section id="killers">
+        <div id="top">
+          <div id="logo"><img src="img/bingo_icon.png"/></div>
+          <div id="ad">
+            <h4 class="grow"><span aria-labelledby="sparkle">✨</span><span aria-labelledby="point-right">👉 </span><a href="https://ko-fi.com/dutchdaddydoes" target="_blank">Up to date version of ACNH-Bingo!</br>Please support me on Ko-Fi!</a></a><span aria-labelledby="point-left"> 👈</span><span aria-labelledby="sparkle">✨</span></h4>
+          </div>
+        </div>
+          <div id="killers-container">Loading 31 New Killers...</div>
+      </section>
+      <section id="canvas">
+        <h1 id="instructions">Select a Spot on the Bingo Card to Fill.</h1>
+        <p id="randomize" class="grow" onclick="card.randomizeCard(this)">
+          <span aria-labelledby="arrow-right">➡️</span>
+          Or click here to randomize your bingo card.
+          <span aria-labelledby="arrow-left"> ⬅️</span>
+        </p>
+
+        <canvas></canvas>
+
+        <div id="download-btn">
+          <a id="download" download="bingo-card.jpg" href="" onclick="card.downloadImage(this)">Download Bingo Card</a>
+        </div>
+      </section>
+
+    </div>
+
+    <script src="js/SlotData.js"></script>
+    <script src="js/UI.js"></script>
+    <script src="js/Villagers.js"></script>
+    <script src="js/Card.js"></script>
+  </body>
+</html>
