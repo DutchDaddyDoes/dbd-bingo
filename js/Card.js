@@ -45,8 +45,8 @@ class Card {
       this.activeGridPosition = this.slotData.slotToGrid[slot]
 
       if (slot !== 13) {  
-        // Get random integer between 0 and 391
-        const randomKillerNumber = Math.floor(Math.random() * Math.floor(414))
+        // Get random integer between 0 and 31
+        const randomKillerNumber = Math.floor(Math.random() * Math.floor(32))
         
         // Get Killer from `randomKillerNumber`
         const killer = this.killers.killers[randomKillerNumber]
