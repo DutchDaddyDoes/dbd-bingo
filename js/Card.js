@@ -16,13 +16,13 @@ class Card {
       if (this.killers.killers.length === 0) {
         // Populate `this.killers.killers` from API
         await this.killers.getKillers()
-        // Call `init()` again to sort animals
+        // Call `init()` again to sort version
         this.init()
-      // After retrieving killers, sort into Animals
-      } else if (this.killers.killers.length === 413) {
+      // After retrieving killers, sort into version
+      } else if (this.killers.killers.length === 31) {
         // Sort Killers
-        this.killers.animals = await this.killers.sortKillers()
-        // Render Animal List
+        this.killers.version = await this.killers.sortKillers()
+        // Render Version List
         this.ui.renderPortraitSelectors()
       }
     } else {
