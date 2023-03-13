@@ -55,7 +55,7 @@ section#killers {
   font-style: normal;
 }
 
-.animal-type-header {
+.version-header {
   margin-left: 2vw;
   
   color: #5288ac;
@@ -64,7 +64,7 @@ section#killers {
   border-bottom: 2px solid #5288ac;
 }
 
-.animal-portrait {
+.killers-portrait {
   height: 7vh;
 }
 
@@ -73,7 +73,7 @@ section#killers {
   color: #1a5165;
 }
 
-.animal-type-portrait-container {
+.version-portrait-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
