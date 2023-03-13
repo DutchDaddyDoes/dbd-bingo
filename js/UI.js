@@ -40,7 +40,7 @@ class UI {
         this.ctx.fillStyle = "#fff"
         this.ctx.fillRect(this.card.slotData.columns[column] + 20, this.card.slotData.rows[row] + 75, 60, 20)
         
-        this.ctx.font = '14px Balsamiq Sans'
+        this.ctx.font = '14px Roboto Bold'
         this.ctx.fillStyle = '#60bec3'
         this.ctx.fillText(killerName, columnCenter - (textWidth / 2), textHeightPosition)
 
@@ -50,7 +50,7 @@ class UI {
           this.ctx.fillStyle = "#fff"
           this.ctx.fillRect(this.card.slotData.columns[column] + 20, this.card.slotData.rows[row] + 75, 60, 20)
         
-          this.ctx.font = '14px Balsamiq Sans'
+          this.ctx.font = '14px Roboto Bold'
           this.ctx.fillStyle = '#60bec3'
           this.ctx.fillText(killerName, columnCenter - (Number(this.ctx.measureText(killerName).width) / 2), textHeightPosition)
         }
@@ -72,7 +72,7 @@ class UI {
       this.ctx.fillStyle = "#fff"
       this.ctx.fillRect(360, 677, 225, 25)
 
-      this.ctx.font = '12px Balsamiq Sans'
+      this.ctx.font = '12px Roboto Bold'
       this.ctx.fillStyle = '#C0C0C0'
       this.ctx.fillText('Certified Randomly Generated Card', 370, 695)
     } else {
@@ -83,7 +83,7 @@ class UI {
 
   setEventListeners() {
     // Get Elements
-    let selectorsElements = document.querySelectorAll('.animal-type-portrait-container')
+    let selectorsElements = document.querySelectorAll('.version-portrait-container')
     selectorsElements.forEach((selectElement) => {
       selectElement.addEventListener('click', event => {
         let element = event.target
@@ -96,48 +96,48 @@ class UI {
   }
 
   renderPortraitSelectors() {
-    const { animals: animalsObj } = this.card.killers
+    const { version: versionObj } = this.card.killers
     
-    // Create AnimalType Container
+    // Create Version Container
     const killersContainer = document.getElementById('killers-container')
     // Remove "Loading" Text
     killersContainer.innerHTML = ''
 
-    for (const animalType in animalsObj) {
-      // Create AnimalType Header
-      const animalHeading = document.createElement('h2')
-      animalHeading.innerHTML = animalsObj[animalType]['animalName']
-      animalHeading.className = 'animal-type-header'
-      killersContainer.appendChild(animalHeading)
+    for (const killerType in versionObj) {
+      // Create KillerType Header
+      const killerHeading = document.createElement('h2')
+      killerHeading.innerHTML = versionObj[killerType]['killerName']
+      killerHeading.className = 'version-header'
+      killersContainer.appendChild(killerHeading)
   
-      // Create Animal Type Portraits Container
-      const animalContainer = document.createElement('div')
-      animalContainer.className = 'animal-type-portrait-container'
+      // Create Killer Type Portraits Container
+      const killerContainer = document.createElement('div')
+      killerContainer.className = 'killer-type-portrait-container'
 
       // Create Portraits
-      animalsObj[animalType][animalType].map((animal) => {
+      versionObj[killerType][killerType].map((killer) => {
         // Create Portrait Container
-        const animalPortraitContainer = document.createElement('div')
-        animalPortraitContainer.className = 'portrait-container'
-        animalPortraitContainer.setAttribute('data-id', animal['id'])
-        animalPortraitContainer.setAttribute('data-name', animal['name']['name-USen'])
+        const killerPortraitContainer = document.createElement('div')
+        killerPortraitContainer.className = 'portrait-container'
+        killerPortraitContainer.setAttribute('data-id', killer['id'])
+        killerPortraitContainer.setAttribute('data-name', killer['name'])
   
         // Create Portrait
-        const animalPortrait = document.createElement('img')
-        animalPortrait.src = animal['icon_uri']
-        animalPortrait.className = 'animal-portrait grow'
+        const killerPortrait = document.createElement('img')
+        killerPortrait.src = killer['icon_uri']
+        killerPortrait.className = 'killer-portrait grow'
   
         // Create Name Text
-        const animalName = document.createElement('p')
-        animalName.className = 'animal-name'
-        animalName.innerHTML = animal['name']['name-USen']
+        const killerName = document.createElement('p')
+        killerName.className = 'killer-name'
+        killerName.innerHTML = killer['name']
   
-        animalPortraitContainer.appendChild(animalPortrait)
-        animalPortraitContainer.appendChild(animalName)
-        animalContainer.appendChild(animalPortraitContainer)
+        killerPortraitContainer.appendChild(killerPortrait)
+        killerPortraitContainer.appendChild(killerName)
+        killerContainer.appendChild(killerPortraitContainer)
       })
   
-      killersContainer.appendChild(animalContainer)
+      killersContainer.appendChild(killerContainer)
     }
   
     this.setEventListeners()
