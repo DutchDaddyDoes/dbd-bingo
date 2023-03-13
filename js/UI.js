@@ -83,7 +83,7 @@ class UI {
 
   setEventListeners() {
     // Get Elements
-    let selectorsElements = document.querySelectorAll('.version-portrait-container')
+    let selectorsElements = document.querySelectorAll('.animal-type-portrait-container')
     selectorsElements.forEach((selectElement) => {
       selectElement.addEventListener('click', event => {
         let element = event.target
@@ -96,48 +96,48 @@ class UI {
   }
 
   renderPortraitSelectors() {
-    const { version: versionObj } = this.card.killers
+    const { animals: animalsObj } = this.card.killers
     
-    // Create Version Container
+    // Create AnimalType Container
     const killersContainer = document.getElementById('killers-container')
     // Remove "Loading" Text
     killersContainer.innerHTML = ''
 
-    for (const killerType in versionObj) {
-      // Create KillerType Header
-      const killerHeading = document.createElement('h2')
-      killerHeading.innerHTML = versionObj[killerType]['killerName']
-      killerHeading.className = 'version-header'
-      killersContainer.appendChild(killerHeading)
+    for (const animalType in animalsObj) {
+      // Create AnimalType Header
+      const animalHeading = document.createElement('h2')
+      animalHeading.innerHTML = animalsObj[animalType]['animalName']
+      animalHeading.className = 'animal-type-header'
+      killersContainer.appendChild(animalHeading)
   
-      // Create Killer Type Portraits Container
-      const killerContainer = document.createElement('div')
-      killerContainer.className = 'killer-type-portrait-container'
+      // Create Animal Type Portraits Container
+      const animalContainer = document.createElement('div')
+      animalContainer.className = 'animal-type-portrait-container'
 
       // Create Portraits
-      versionObj[killerType][killerType].map((killer) => {
+      animalsObj[animalType][animalType].map((animal) => {
         // Create Portrait Container
-        const killerPortraitContainer = document.createElement('div')
-        killerPortraitContainer.className = 'portrait-container'
-        killerPortraitContainer.setAttribute('data-id', killer['id'])
-        killerPortraitContainer.setAttribute('data-name', killer['name'])
+        const animalPortraitContainer = document.createElement('div')
+        animalPortraitContainer.className = 'portrait-container'
+        animalPortraitContainer.setAttribute('data-id', animal['id'])
+        animalPortraitContainer.setAttribute('data-name', animal['name'])
   
         // Create Portrait
-        const killerPortrait = document.createElement('img')
-        killerPortrait.src = killer['icon_uri']
-        killerPortrait.className = 'killer-portrait grow'
+        const animalPortrait = document.createElement('img')
+        animalPortrait.src = animal['icon_uri']
+        animalPortrait.className = 'animal-portrait grow'
   
         // Create Name Text
-        const killerName = document.createElement('p')
-        killerName.className = 'killer-name'
-        killerName.innerHTML = killer['name']
+        const animalName = document.createElement('p')
+        animalName.className = 'animal-name'
+        animalName.innerHTML = animal['name']
   
-        killerPortraitContainer.appendChild(killerPortrait)
-        killerPortraitContainer.appendChild(killerName)
-        killerContainer.appendChild(killerPortraitContainer)
+        animalPortraitContainer.appendChild(animalPortrait)
+        animalPortraitContainer.appendChild(animalName)
+        animalContainer.appendChild(animalPortraitContainer)
       })
   
-      killersContainer.appendChild(killerContainer)
+      killersContainer.appendChild(animalContainer)
     }
   
     this.setEventListeners()
