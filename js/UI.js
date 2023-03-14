@@ -32,20 +32,20 @@ class UI {
       
       icon.onload = () => {
         const columnCenter = this.card.slotData.columns[column] + 50
-        const textWidth = Number(this.ctx.measureText(killerName).width)
-        const textHeightPosition = this.card.slotData.rows[row] + this.card.slotData.slotHeight - 10
+        /*const textWidth = Number(this.ctx.measureText(killerName).width)
+        const textHeightPosition = this.card.slotData.rows[row] + this.card.slotData.slotHeight*/
         
-        this.ctx.drawImage(icon, this.card.slotData.columns[column] + 20, this.card.slotData.rows[row] + 15, 60, 60)
+        this.ctx.drawImage(icon, this.card.slotData.columns[column] + 5, this.card.slotData.rows[row] + 5, 90, 90)
         
-        this.ctx.fillStyle = "#fff"
+        /*this.ctx.fillStyle = "#fff"
         this.ctx.fillRect(this.card.slotData.columns[column] + 20, this.card.slotData.rows[row] + 75, 60, 20)
         
         this.ctx.font = '14px Roboto Bold'
         this.ctx.fillStyle = '#60bec3'
-        this.ctx.fillText(killerName, columnCenter - (textWidth / 2), textHeightPosition)
+        this.ctx.fillText(killerName, columnCenter - (textWidth / 2), textHeightPosition)*/
 
         // Fixes uneven text placement bug
-        if (!this.firstTextPlaced) {
+        /*if (!this.firstTextPlaced) {
           this.firstTextPlaced = true
           this.ctx.fillStyle = "#fff"
           this.ctx.fillRect(this.card.slotData.columns[column] + 20, this.card.slotData.rows[row] + 75, 60, 20)
@@ -53,7 +53,7 @@ class UI {
           this.ctx.font = '14px Roboto Bold'
           this.ctx.fillStyle = '#60bec3'
           this.ctx.fillText(killerName, columnCenter - (Number(this.ctx.measureText(killerName).width) / 2), textHeightPosition)
-        }
+        }*/
       }
 
     }
@@ -69,15 +69,17 @@ class UI {
 
   toggleRandomVerificationElement() {
     if (this.card.random) {
-      this.ctx.fillStyle = "#fff"
-      this.ctx.fillRect(360, 677, 225, 25)
+      /*this.ctx.fillStyle = "#fff"
+      this.ctx.fillRect(360, 677, 225, 25)*/
 
-      this.ctx.font = '12px Roboto Bold'
-      this.ctx.fillStyle = '#C0C0C0'
-      this.ctx.fillText('Certified Randomly Generated Card', 370, 695)
+      this.ctx.font = 'bold 16px Roboto'
+      this.ctx.fillStyle = '#800000'
+      this.ctx.fillText('Certified Randomly Generated Card', 320, 695)
     } else {
-      this.ctx.fillStyle = "#fff"
-      this.ctx.fillRect(360, 677, 225, 25)
+      this.ctx.font = 'bold 16px Roboto'
+      this.ctx.fillStyle = "#800000"
+      this.ctx.fillText('Handpicked Bingo Card', 370, 695)
+      //this.ctx.fillRect(360, 677, 225, 25)
     }
   }
 
@@ -96,7 +98,7 @@ class UI {
   }
 
   renderPortraitSelectors() {
-    const { animals: animalsObj } = this.card.killers
+    const { versions: animalsObj } = this.card.killers
     
     // Create AnimalType Container
     const killersContainer = document.getElementById('killers-container')
@@ -106,7 +108,7 @@ class UI {
     for (const animalType in animalsObj) {
       // Create AnimalType Header
       const animalHeading = document.createElement('h2')
-      animalHeading.innerHTML = animalsObj[animalType]['animalName']
+      animalHeading.innerHTML = animalsObj[animalType]['gameVersion']
       animalHeading.className = 'animal-type-header'
       killersContainer.appendChild(animalHeading)
   

@@ -5,7 +5,7 @@ class Killers {
     this.url = 'https://dutchdaddydoes.github.io/ACNHAPI/killers.json'
     
     this.killers = new Array()
-    this.animals = new Object()
+    this.versions = new Object()
   }
 
   async getKillers() {
@@ -27,15 +27,15 @@ class Killers {
   
     return {
       base: {
-        gameVersion: 'BaseGame',
+        gameVersion: 'Base Game',
         base,
       },
       original: {
-        gameVersion: 'OriginalDLC',
+        gameVersion: 'Original DLC',
         original,
       },
       franchise: {
-        gameVersion: 'FranchiseDLC',
+        gameVersion: 'Franchise DLC',
         franchise,
       },
     }
