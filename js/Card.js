@@ -19,7 +19,7 @@ class Card {
         // Call `init()` again to sort version
         this.init()
       // After retrieving killers, sort into Version
-      } else if (this.killers.killers.length === 31) {
+      } else if (this.killers.killers.length === 32) {
         // Sort Killers
         this.killers.versions = await this.killers.sortKillers()
         // Render Version List
@@ -45,8 +45,8 @@ class Card {
       this.activeGridPosition = this.slotData.slotToGrid[slot]
 
       if (slot !== 13) {  
-        // Get random integer between 0 and 31
-        const randomKillerNumber = Math.floor(Math.random() * Math.floor(31))
+        // Get random integer between 0 and 32
+        const randomKillerNumber = Math.floor(Math.random() * Math.floor(32))
         
         // Get Killer from `randomKillerNumber`
         const killer = this.killers.killers[randomKillerNumber]
