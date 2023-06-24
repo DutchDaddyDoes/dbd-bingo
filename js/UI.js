@@ -69,15 +69,17 @@ class UI {
 
   toggleRandomVerificationElement() {
     if (this.card.random) {
-      /*this.ctx.fillStyle = "#fff"
-      this.ctx.fillRect(360, 677, 225, 25)*/
-      this.ctx.clearRect(300, 690, 290, 700);
+      this.ctx.fillStyle = "#525252"
+      this.ctx.fillRect(318, 677, 285, 25)
+      //this.ctx.clearRect(300, 677, 290, 25);
 
       this.ctx.font = 'bold 16px Roboto'
       this.ctx.fillStyle = '#800000'
       this.ctx.fillText('Certified Randomly Generated Card', 320, 695)
     } else {
-      this.ctx.clearRect(300, 690, 290, 700);
+      this.ctx.fillStyle = "#525252"
+      this.ctx.fillRect(318, 677, 285, 25)
+      //this.ctx.clearRect(300, 677, 290, 700);
       this.ctx.font = 'bold 16px Roboto'
       this.ctx.fillStyle = "#800000"
       this.ctx.fillText('Handpicked Bingo Card', 370, 695)
