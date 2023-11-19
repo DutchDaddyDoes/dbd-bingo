@@ -19,7 +19,7 @@ class Card {
         // Call `init()` again to sort version
         this.init()
       // After retrieving killers, sort into Version
-      } else if (this.killers.killers.length === 33) {
+      } else if (this.killers.killers.length === 34) {
         // Sort Killers
         this.killers.versions = await this.killers.sortKillers()
         // Render Version List
@@ -40,7 +40,7 @@ class Card {
 
   randomizeCard() {
     // For each slot on Bingo Card (1-25, except 13)
-    let numbers = Array.apply(null, {length: 33}).map(Number.call, Number);
+    let numbers = Array.apply(null, {length: 34}).map(Number.call, Number);
     shuffle(numbers);
 
     function shuffle(numbers) {
@@ -61,7 +61,7 @@ class Card {
       this.activeGridPosition = this.slotData.slotToGrid[slot]
 
       if (slot !== 13) {  
-        // Get random integer between 0 and 33
+        // Get random integer between 0 and 34
         const randomKillerNumber = numbers[this.activeSlot]
         
         // Get Killer from `randomKillerNumber`
