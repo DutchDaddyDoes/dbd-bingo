@@ -59,6 +59,22 @@ section#killers {
   font-style: normal;
 }
 
+#card-size-toggle {
+  margin-bottom: 10px;
+  color: #8C0000;
+  font-size: 14px;
+}
+
+#card-size-toggle label {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+#card-size-toggle input {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
 .animal-type-header {
   margin-left: 2vw;
   

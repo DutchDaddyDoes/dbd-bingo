@@ -16,6 +16,11 @@ class SlotData {
       'N': this.cardMargin + 2 * (this.slotWidth + this.slotMargin),     // 245
       'G': this.cardMargin + 3 * (this.slotWidth + this.slotMargin),     // 355
       'O': this.cardMargin + 4 * (this.slotWidth + this.slotMargin),     // 465
+      // 4x4 columns
+      'W': this.cardMargin,                                              // 25
+      'X': this.cardMargin + this.slotWidth + this.slotMargin,           // 135
+      'Y': this.cardMargin + 2 * (this.slotWidth + this.slotMargin),     // 245
+      'Z': this.cardMargin + 3 * (this.slotWidth + this.slotMargin),     // 355
     }
 
     // Row Start Absolute Positions
@@ -84,6 +89,46 @@ class SlotData {
       24: 'G 5',
       25: 'O 5',
     }
+
+    // 4x4 Grid mapping
+    this.slotTo4x4Grid = {
+      1: 'W 1',
+      2: 'X 1',
+      3: 'Y 1',
+      4: 'Z 1',
+      5: 'W 2',
+      6: 'X 2',
+      7: 'Y 2',
+      8: 'Z 2',
+      9: 'W 3',
+      10: 'X 3',
+      11: 'Y 3',
+      12: 'Z 3',
+      13: 'W 4',
+      14: 'X 4',
+      15: 'Y 4',
+      16: 'Z 4',
+    }
+
+    // 4x4 Grid to slot mapping
+    this.grid4x4ToSlot = {
+      'W 1': 1,
+      'X 1': 2,
+      'Y 1': 3,
+      'Z 1': 4,
+      'W 2': 5,
+      'X 2': 6,
+      'Y 2': 7,
+      'Z 2': 8,
+      'W 3': 9,
+      'X 3': 10,
+      'Y 3': 11,
+      'Z 3': 12,
+      'W 4': 13,
+      'X 4': 14,
+      'Y 4': 15,
+      'Z 4': 16,
+    }
   }
 
   detectGridPosition(windowX, windowY) {
@@ -99,20 +144,37 @@ class SlotData {
   }
 
   detectColumn(clickY) {
-    if (clickY > this.columns['B'] - 15) { // 10
-      if (clickY > this.columns['I']) { // 135
-        if (clickY > this.columns['N']) { // 245
-          if (clickY > this.columns['G']) { // 355
-            if (clickY > this.columns['O'])  { // 465
-              return 'O'
+    if (this.card.cardSize === '4x4') {
+      // Logic for 4x4 card (ACNH columns)
+      if (clickY > this.columns['W'] - 15) { // 10
+        if (clickY > this.columns['X']) { // 135
+          if (clickY > this.columns['Y']) { // 245
+            if (clickY > this.columns['Z']) { // 355
+              return 'Z'
             }
-            return 'G'
+            return 'Y'
           }
-          return 'N'
+          return 'X'
         }
-        return 'I'
+        return 'W'
       }
-      return 'B'
+    } else {
+      // Original logic for 5x5 card (BINGO columns)
+      if (clickY > this.columns['B'] - 15) { // 10
+        if (clickY > this.columns['I']) { // 135
+          if (clickY > this.columns['N']) { // 245
+            if (clickY > this.columns['G']) { // 355
+              if (clickY > this.columns['O'])  { // 465
+                return 'O'
+              }
+              return 'G'
+            }
+            return 'N'
+          }
+          return 'I'
+        }
+        return 'B'
+      }
     }
   }
 
