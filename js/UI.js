@@ -113,20 +113,20 @@ class UI {
     if (this.card.random) {
       if (this.card.cardSize === '5x5') {
         // 5x5 card position
-        this.ctx.fillStyle = "#525252"
-        this.ctx.fillRect(318, 677, 285, 25)
+        //this.ctx.fillStyle = "#525252"
+        //this.ctx.fillRect(300, 677, 285, 25)
 
         this.ctx.font = 'bold 16px Roboto'
         this.ctx.fillStyle = '#800000'
-        this.ctx.fillText('Certified Randomly Generated Card', 320, 695)
+        this.ctx.fillText('Certified Randomly Generated Card', 300, 695)
       } else {
         // 4x4 card position
-        this.ctx.fillStyle = "#525252"
-        this.ctx.fillRect(220, 565, 285, 25)
+        //this.ctx.fillStyle = "#525252"
+        //this.ctx.fillRect(210, 565, 285, 25)
 
         this.ctx.font = 'bold 16px Roboto'
         this.ctx.fillStyle = '#800000'
-        this.ctx.fillText('Certified Randomly Generated Card', 230, 580)
+        this.ctx.fillText('Certified Randomly Generated Card', 210, 585)
       }
     } else {
       if (this.card.cardSize === '5x5') {
