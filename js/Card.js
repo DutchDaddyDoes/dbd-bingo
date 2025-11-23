@@ -19,7 +19,7 @@ class Card {
         // Call `init()` again to sort version
         this.init()
       // After retrieving killers, sort into Version
-      } else if (this.killers.killers.length === 34) {
+      } else if (this.killers.killers.length === 41) {
         // Sort Killers
         this.killers.versions = await this.killers.sortKillers()
         // Render Version List
@@ -40,7 +40,7 @@ class Card {
 
   randomizeCard() {
     // For each slot on Bingo Card (1-25, except 13)
-    let numbers = Array.apply(null, {length: 34}).map(Number.call, Number);
+    let numbers = Array.apply(null, {length: 41}).map(Number.call, Number);
     shuffle(numbers);
 
     function shuffle(numbers) {
