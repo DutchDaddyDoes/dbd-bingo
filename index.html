@@ -19,7 +19,11 @@
       </section>
       <section id="canvas">
         <h1 id="instructions">Select a Spot on the Bingo Card to Fill.</h1>
-        <p id="randomize" class="grow" onclick="card.randomizeCard(this)">Or click here to randomize your bingo card.</p>
+        <p id="randomize" class="grow" onclick="card.randomizeCard(this)">
+          <span aria-labelledby="arrow-right">➡️</span>
+          Or click here to randomize your bingo card.
+          <span aria-labelledby="arrow-left"> ⬅️</span>
+        </p>
 
         <div id="card-size-toggle">
           <label><input type="radio" name="card-size" value="5x5" checked onclick="card.setCardSize('5x5')"> 5x5 (with free space)</label>
